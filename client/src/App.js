@@ -11,7 +11,7 @@ function App() {
   // const [chat, setChat] = useState();
 
   //Using useState to change room title
-  let [room, setRoom] = useState([]);
+  let [room, setRoom] = useState('');
 
   return (
     <main className="wholePage">

@@ -63,21 +63,21 @@ const Message = mongoose.model("Message", LogSchema)
 // grabbed this code from hello-express lab (weekSix)
 app.get('/data', async (req, res) => {
   let allData = await Message.find({})
-  console.log(req.body)
+  // console.log(req.body)
   res.json(allData)
 });
 
 //CREATE functionality for inserting a new entry into our collection
 app.post("/create", async (req, res) => {
   //assigning the creation of a new entry to a variable
-  const newEntry = new Entry ({
+  const newMessage = new Message ({
     timeSent: req.body.timeSent,
     creatorName: req.body.creatorName,
     room: req.body.room,
     textBody: req.body.textBody
   })
   //saving the new entry to the Model
-  await newEntry.save();
+  await newMessage.save();
   //redirecting to the home page
   res.redirect("/");
 });
