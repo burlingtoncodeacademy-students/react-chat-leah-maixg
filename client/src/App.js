@@ -13,6 +13,7 @@ function App() {
   //Using useState to change room title
   let [room, setRoom] = useState('');
 
+  //Returns the two page components
   return (
     <main className="wholePage">
       <h1 className="banner">Chat Rooms</h1>

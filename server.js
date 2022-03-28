@@ -1,21 +1,6 @@
-// provided code ----
-// const express = require("express");
-
-// const port = process.env.PORT || 8000;
-// const app = express();
-
-// const Message = require('./Message.js')
-
-
-
-// app.listen(port, () => {
-//   console.log('listening on port: ' + port) 
-// })
-// -------------------------------------------------------------------------------
-
 // --- IMPORTS ---
 // import Mongoose
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 //importing express
 const express = require("express");
 //importing cors
@@ -27,7 +12,7 @@ const LogSchema = require("./Message");
 
 // --- MONGODB CONNECT & INIT ---
 // connect to MongoDB (localhost FOR NOW) and server (/chatroom)
-mongoose.connect("mongodb://localhost:27017/chatroom")
+mongoose.connect("mongodb://localhost:27017/chatroom");
 
 // initialize Database through the connection constructor
 const db = mongoose.connection;
@@ -52,36 +37,36 @@ db.on("error", console.error.bind(console, "connection error"));
 // allows us to use JSON
 app.use(express.json());
 // turns 'request' body into object, extended true indicates using qs library vs query library (< deprecated)
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 //adding cors
 app.use(cors());
 
 // creating the model to utilize the Log schema and the "Message" model
-const Message = mongoose.model("Message", LogSchema)
+const Message = mongoose.model("Message", LogSchema);
 
 //
 // grabbed this code from hello-express lab (weekSix)
-app.get('/data', async (req, res) => {
-  let allData = await Message.find({})
-  console.log(req.body)
-  res.json(allData)
+app.get("/data", async (req, res) => {
+  let allData = await Message.find({});
+  console.log(req.body);
+  res.json(allData);
 });
 
 //CREATE functionality for inserting a new entry into our collection
 app.post("/create", async (req, res) => {
   //assigning the creation of a new entry to a variable
-  const newMessage = new Message ({
+  const newMessage = new Message({
     timeSent: req.body.timeSent,
     creatorName: req.body.creatorName,
     room: req.body.room,
-    textBody: req.body.textBody
-  })
+    textBody: req.body.textBody,
+  });
   //saving the new entry to the Model
   await newMessage.save();
-  //redirecting to the home page
+  //redirecting to the current page user is on
   res.redirect(`http://localhost:3000/${req.body.room.toLowerCase()}`);
 });
 
 app.listen(port, () => {
-  console.log('listening on port: ' + port) 
+  console.log("listening on port: " + port);
 });

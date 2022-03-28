@@ -23,14 +23,19 @@ function ChatRooms(props) {
     fetchChat();
   })
     
+  //Returns the chat info
   return (
     <section>
+      {/*Title of the room*/}
       <h2 className="titles">
         Current Room: {props.room}
       </h2>
+      {/*This is the chat box*/}
       <body className="chatBox">
         {chat.map((message) => {
+          {/*If the room in url matches current room*/}
           if (message.room === props.room) {
+            {/*Return the chat info in this format*/}
           return (
             <div className="chatInfo" key={message._id}>
               <p>{message.timeSent}</p>
@@ -40,6 +45,7 @@ function ChatRooms(props) {
           }
         })}
       </body>
+      {/*This is the form where user can submit input*/}
       <form className="form" action="http://localhost:8000/create" method="POST">
         <input className="input"
           placeholder="Username"
@@ -51,7 +57,8 @@ function ChatRooms(props) {
         <input type="hidden" name="room" value={props.room} />
         <input type="hidden" name="timeSent" value={new Date().toLocaleString()} />
         <input className="button" type="submit" value="SEND" />
-        <button className="button">Refresh</button>
+        {/*Polling for new messages happens automatically when user submits input, so don't need this button*/}
+        {/* <button className="button">Refresh</button> */}
       </form>
     </section>
   );

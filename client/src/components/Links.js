@@ -18,6 +18,7 @@ function Links(props) {
     props.setRoom("Fitness");
   }
 
+  //Returns the links
   return (
     <section>
       <h2 className="titles">Rooms</h2>
