@@ -63,7 +63,7 @@ const Message = mongoose.model("Message", LogSchema)
 // grabbed this code from hello-express lab (weekSix)
 app.get('/data', async (req, res) => {
   let allData = await Message.find({})
-  // console.log(req.body)
+  console.log(req.body)
   res.json(allData)
 });
 
@@ -79,7 +79,7 @@ app.post("/create", async (req, res) => {
   //saving the new entry to the Model
   await newMessage.save();
   //redirecting to the home page
-  res.redirect("/");
+  res.redirect(`http://localhost:3000/${req.body.room.toLowerCase()}`);
 });
 
 app.listen(port, () => {

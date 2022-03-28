@@ -27,10 +27,7 @@ function Links(props) {
         <Link to="/animals">Animals</Link>
         <Link to="/fitness">Fitness</Link>
         <Routes>
-          <Route path="/"></Route>
-          <Route path="/food"></Route>
-          <Route path="/animals"></Route>
-          <Route path="/fitness"></Route>
+          <Route path="/:room"></Route>
         </Routes>
       </div>
     </section>
