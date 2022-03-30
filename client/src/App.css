@@ -1,0 +1,117 @@
+/*------------- Everything on App.js --------------*/
+
+/*The entire page*/
+.wholePage {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: lavenderblush;
+}
+
+/*Just the top of page banner*/
+.banner {
+  background-color: darkslategrey;
+  color: indigo;
+  -webkit-text-stroke: 1px silver;
+  padding: 1rem;
+  margin-top: 0;
+}
+
+/*Everything Under the Banner - wrapped*/
+.everythingUnderTheBanner {
+  display: grid;
+  grid-template-columns: minmax(1vw, .5fr) minmax(1vw, 2fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 5px;
+  margin: 5rem;
+  box-sizing: border-box;
+}
+
+/*-------------- Links.js and Chat.js -------------- */
+
+/*Both titles*/
+.titles {
+  font-size: large;
+  background-color: indigo;
+  border: 3px solid silver;
+  color: silver;
+  padding: 1rem;
+  border-radius: .5rem;
+}
+
+/*------------- Everything on Links.js ------------- */
+
+/*Just the links on the left*/
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: darkslategray;
+  padding: 1rem;
+  padding-bottom: 19.5rem;
+  border-radius: .5rem;
+  height: 16vh;
+}
+
+/*The links text*/
+.links a {
+  color: white;
+  text-decoration-line: none;
+  font-size: medium;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin: 1.25rem;
+}
+
+/*-------------- Everything on Chat.js -------------- */
+
+/*The chat box*/
+.chatBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: white;
+  color: black;
+  padding: 2rem;
+  padding-top: 0;
+  border-radius: .5rem;
+  border: 15px solid silver;
+  border-style: double;
+  height: 45vh;
+  overflow: scroll;
+}
+
+.chatInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 1rem;
+}
+
+.chatInfo p {
+  margin: 5px;
+}
+
+/*The form with input fields and buttons*/
+.form {
+  display: flex;
+  justify-content: flex-start;
+  background-color: darkslategrey;
+  color: white;
+  padding: 1rem;
+  border-radius: .5rem;
+  gap: 1vw;
+}
+
+/*Input fields*/
+.input {
+  padding: .5rem;
+}
+
+/*Form's buttons*/
+.button {
+  background-color: lightblue;
+  padding: .5rem;
+}
